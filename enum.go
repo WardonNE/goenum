@@ -1,14 +1,13 @@
 package goenum
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 var ErrInvalidEnumValue = errors.New("invalid value for enum")
 
-type Stringify interface {
-	String() string
-}
-
-type Enum[T Stringify] []T
+type Enum[T fmt.Stringer] []T
 
 // Values() get all enums
 func (this Enum[T]) Values() []T {
