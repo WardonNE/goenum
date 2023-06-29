@@ -11,7 +11,7 @@ go get -v -u github.com/wardonne/goenum
 // enum based on basic type
 type ImageType string
 
-// implement Stringify interface
+// implement fmt.Stringer interface
 func (i ImageType) String() string {
     return string(i)
 }
@@ -55,7 +55,7 @@ type ImageType struct {
     mimeType string
 }
 
-// implement Stringify interface
+// implement fmt.Stringer interface
 func (i ImageType) String() string {
     return fmt.Sprintf("extension: %s, mimetype: %s", i.extension, i.mimeType)
 }
